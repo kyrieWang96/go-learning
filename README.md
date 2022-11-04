@@ -1,2 +1,5 @@
-# go-learning
+# go-learning 
 golang-学习仓库
+
+#### 1. 每个文件夹下有README说明该文件下工程事例是如何使用操作的
+#### 2. 每个文件的代码UT一定要覆盖
