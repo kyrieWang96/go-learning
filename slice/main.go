@@ -39,13 +39,22 @@ func main() {
 	//}
 	// A := make([]string, 0)
 	//A = append(A, "A", "B", "C")
-	A := [3]string{"A", "B", "C"}
-	B := ChangeSlice(A)
-	fmt.Println(A)
-	fmt.Println(B)
+	//A := [3]string{"A", "B", "C"}
+	//B := ChangeSlice(A)
+	//fmt.Println(A)
+	//fmt.Println(B)
+	s := []string{"A", "B"}
+
+	fmt.Println(AppendSlice(s))
+	fmt.Println(s)
 }
 
 func ChangeSlice(A [3]string) [3]string {
 	A[0] = "z"
 	return A
+}
+
+func AppendSlice(slice []string) *[]string {
+	slice = append(slice, "1", "2", "3")
+	return &slice
 }

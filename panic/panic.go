@@ -1,17 +1,35 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+func getChannel(ch chan int) {
+
+	fmt.Printf("接受数据: %d", <-ch)
+	time.Sleep(time.Second * 5)
+}
 
 func main() {
-	defer fmt.Println("test A")
+	ch := make(chan int)
 
-	defer fmt.Println("test B")
+	ch <- 1
+	go getChannel(ch)
+	time.Sleep(time.Second * 5)
 
-	defer func() {
-		if err := recover(); err != nil {
-			fmt.Println(err.(string))
-		}
-	}()
-
-	panic("hahahahaha")
 }
+
+//func main() {
+//	defer fmt.Println("test A")
+//
+//	defer fmt.Println("test B")
+//
+//	defer func() {
+//		if err := recover(); err != nil {
+//			fmt.Println(err.(string))
+//		}
+//	}()
+//
+//	panic("hahahahaha")
+//}
